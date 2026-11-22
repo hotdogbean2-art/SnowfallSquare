@@ -1,0 +1,29 @@
+name: Build Snowfall Square IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build unsigned iPad app
+        run: |
+          xcodebuild -project ios/SnowfallSquare.xcodeproj -scheme SnowfallSquare \
+            -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/build" CODE_SIGNING_ALLOWED=NO build
+          mkdir -p "$RUNNER_TEMP/Payload"
+          cp -R "$RUNNER_TEMP/build/Build/Products/Release-iphoneos/SnowfallSquare.app" "$RUNNER_TEMP/Payload/"
+          cd "$RUNNER_TEMP"
+          zip -qry "$GITHUB_WORKSPACE/SnowfallSquare-unsigned.ipa" Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SnowfallSquare-unsigned-IPA
+          path: SnowfallSquare-unsigned.ipa
+          retention-days: 14

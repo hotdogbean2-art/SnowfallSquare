@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#bfe7f6"><title>Snowfall Square</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="shell">
+  <header class="topbar"><div class="brand"><span class="brand-mark">✦</span><div><strong>SNOWFALL SQUARE</strong><small>A little snowy place to meet</small></div></div><div class="connection"><i id="dot"></i><span id="online">Connecting…</span></div></header>
+  <section class="game-wrap">
+    <div class="scene-head"><div><span class="eyebrow">TODAY IN THE NORTH</span><h1 id="room-title">Frostberry Plaza</h1></div><div class="room-switch"><button class="room active" data-room="plaza">Plaza</button><button class="room" data-room="ice-lake">Ice lake</button></div></div>
+    <div class="scene" id="scene" aria-label="Snowy town. Tap a spot to walk there.">
+      <div class="sky"><span class="sun">✳</span><div class="cloud cloud-a"></div><div class="cloud cloud-b"></div></div>
+      <div class="mountain m1"></div><div class="mountain m2"></div>
+      <div class="pine pine-a">♠</div><div class="pine pine-b">♠</div><div class="pine pine-c">♠</div>
+      <div class="cabin"><div class="roof"></div><div class="window"></div><div class="door"></div><span>WARM COCOA</span></div>
+      <div class="path"></div><div class="snowbank bank-a"></div><div class="snowbank bank-b"></div>
+      <div class="sign">❄ &nbsp; BE KIND &nbsp; ❄</div><div class="players" id="players"></div>
+      <div class="tap-hint">Tap the snow to walk</div>
+    </div>
+    <div class="lower"><section class="chat-panel"><div class="panel-title"><span>Town chat</span><small>Keep it kind 💙</small></div><div id="messages" class="messages"><p class="notice">Welcome to Snowfall Square. Say hello!</p></div><form id="chat-form"><input id="chat-input" maxlength="100" placeholder="Write a friendly message…" autocomplete="off"><button aria-label="Send message">➤</button></form></section>
+    <aside class="side-panel"><div class="panel-title">Your snowfriend</div><label class="name-label">NAME<input id="name" maxlength="16" value="Snowfriend"></label><div class="choice-row"><button id="man" class="choice selected"><span>☃</span>Snowman</button><button id="woman" class="choice"><span>☃</span>Snowwoman</button></div><label class="color-row">Scarf color <input id="color" type="color" value="#62aee8"></label><div class="emotes"><button data-emote="👋">👋</button><button data-emote="❄️">❄️</button><button data-emote="💙">💙</button><button data-emote="☃️">☃️</button></div></aside></div>
+  </section>
+  <footer>Made for snowy little adventures <span>✦</span></footer>
+</main><script src="/game.js"></script>
+</body></html>
