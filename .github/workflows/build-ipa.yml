@@ -13,6 +13,11 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+      - name: Generate iPad project
+        run: |
+          brew install xcodegen
+          cd ios
+          xcodegen generate --spec project.yml
       - name: Build unsigned iPad app
         run: |
           xcodebuild -project ios/SnowfallSquare.xcodeproj -scheme SnowfallSquare \
